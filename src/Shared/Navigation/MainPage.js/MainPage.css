@@ -1,0 +1,66 @@
+.body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.hero {
+  display: flex;
+  height: 100vh;
+  background-size: cover;
+  box-shadow: inset 0 0 2000px rgba(0, 0, 0, 1);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+.content h1 {
+  text-align: center;
+  justify-content: center;
+  font-size: 56px;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.content p {
+  font-size: 22px;
+  margin: 15px 0;
+  font-weight: 600;
+  max-width: 550px;
+  letter-spacing: 1px;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7); /* Add a subtle box shadow */
+  background-image: linear-gradient(
+    to right,
+    #f4e5c3,
+    #fb7735
+  ); /* Gradient background */
+  color: rgb(6, 5, 5); /* Text color */
+}
+
+.content a {
+  color: inherit;
+  text-decoration: none;
+  background-color: orangered;
+  padding: 12px 24px;
+  font-size: 22px;
+  border-radius: 10px;
+  transition: color 0.3s ease;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+.content a:hover {
+  background-color: white;
+  text-decoration: none;
+}
