@@ -1,0 +1,25 @@
+.input-wrapper {
+  margin-bottom: 10px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.error-message {
+  color: #ff0000;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.label {
+  float: left;
+  margin: 0 auto;
+  padding: 5px;
+  font-size: 14px;
+  font-weight: 200;
+}

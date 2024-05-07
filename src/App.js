@@ -1,15 +1,10 @@
 import "./App.css";
 import React from "react";
 import MainHeader from "./Shared/Navigation/MainHeader";
-import {
-  Route,
-  BrowserRouter as Router,
-  Routes,
-  Navigate,
-} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import MainPage from "./Shared/Navigation/MainPage.js/MainPage";
 import AuthContext from "./Shared/context/AuthContext";
-
+import { useNavigate } from "react-router-dom";
 import NewWorkout from "./User/pages/NewWorkout";
 
 import LoginPage from "./User/pages/LoginPage";
@@ -18,6 +13,7 @@ import UserWorkout from "./User/pages/UserWorkout";
 import UserGoals from "./User/pages/UserGoals";
 import UserProgress from "./User/pages/UserProgress";
 function App() {
+  const navigate = useNavigate();
   const [isLoggedIn, setIsLoggedIn] = React.useState(true);
 
   const login = React.useCallback(() => {
@@ -25,6 +21,7 @@ function App() {
   }, []);
   const logout = React.useCallback(() => {
     setIsLoggedIn(false);
+    navigate("/");
   }, []);
 
   let routes;
@@ -36,8 +33,6 @@ function App() {
         <Route path="/:UserId/workouts" element={<UserWorkout />} />
         <Route path="/:UserId/goals" element={<UserGoals />} />
         <Route path="/:UserId/progress" element={<UserProgress />} />
-
-        <Route path="/" element={<MainPage />} />
       </Routes>
     );
   } else {
@@ -54,7 +49,7 @@ function App() {
     <AuthContext.Provider
       value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
     >
-      <MainHeader onLogout={logout} />
+      <MainHeader />
 
       <main>{routes}</main>
     </AuthContext.Provider>

@@ -1,13 +1,16 @@
 import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
-import App from "../../App";
 
 import "./NavigationLinks.css";
 
-const NavigationLinks = () => {
+const NavigationLinks = (props) => {
   const authContext = useContext(AuthContext);
 
+  const logoutHandler = (event) => {
+    event.preventDefault();
+    authContext.logout();
+  };
   return (
     <ul className="nav-links">
       {authContext.isLoggedIn && (
@@ -25,7 +28,9 @@ const NavigationLinks = () => {
             <NavLink to="/u1/goals">My Goals</NavLink>
           </li>
           <li>
-            <NavLink to="/">Log Out</NavLink>
+            <NavLink to="/" onClick={logoutHandler}>
+              Log Out
+            </NavLink>
           </li>
         </>
       )}
