@@ -24,3 +24,8 @@
 nav {
   margin-left: auto;
 }
+@media (max-width: 840px) {
+  .nav-links {
+    display: none; /* Hide the navigation links */
+  }
+}

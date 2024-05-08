@@ -6,6 +6,10 @@ import { useContext } from "react";
 import Button from "../../Shared/FormElements/components/Button";
 import { useNavigate } from "react-router-dom";
 import Input from "../../Shared/FormElements/components/Input";
+import {
+  VALIDATOR_MINLENGTH,
+  VALIDATOR_REQUIRE,
+} from "../../Shared/utils/validators";
 
 const LoginPage = () => {
   const auth = useContext(AuthContext);
@@ -29,6 +33,8 @@ const LoginPage = () => {
           type="username"
           placeholder="Username"
           value={username}
+          validators={[VALIDATOR_MINLENGTH(5)]}
+          errorText={"Please eneter a username (at least 5 characters)"}
           onChange={(e) => setUsername(e.target.value)}
         />
         <Input
@@ -36,6 +42,8 @@ const LoginPage = () => {
           type="password"
           placeholder="Password"
           value={password}
+          validators={[VALIDATOR_REQUIRE(), VALIDATOR_MINLENGTH(8)]}
+          errorText={"Please eneter a valid password (at least 8 characters)"}
           onChange={(e) => setPassword(e.target.value)}
         />
         <Button type="submit" onClick={loginHandler}>

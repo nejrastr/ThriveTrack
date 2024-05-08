@@ -22,7 +22,7 @@ function App() {
   const logout = React.useCallback(() => {
     setIsLoggedIn(false);
     navigate("/");
-  }, []);
+  }, [navigate]);
 
   let routes;
 
