@@ -1,13 +1,17 @@
-.new-workout {
+.new-exercise {
   width: 90%;
   max-width: 50rem;
   margin: 7rem auto;
   text-align: center;
 }
 
-.new-workout form {
+.new-exercise form {
   margin-bottom: 1rem;
 }
-.new-workout form button {
+.new-exercise form button {
   margin-top: 1rem;
+}
+
+.button {
+  margin: 1rem;
 }
