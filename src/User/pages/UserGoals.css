@@ -1,0 +1,16 @@
+.goals title {
+  color: black;
+  text-align: center;
+  margin: 500px;
+}
+
+.goals {
+  width: 90%;
+  max-width: 25rem;
+  margin: 7rem auto;
+  text-align: center;
+}
+
+.goals form {
+  margin-bottom: 1rem;
+}
