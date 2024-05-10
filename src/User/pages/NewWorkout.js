@@ -53,7 +53,7 @@ const NewWorkout = () => {
             onChange={(e) => setNumberOfExercises(e.target.value)}
           />
           <Input
-            label="Duration"
+            label="Duration (in minutes)"
             type="text"
             placeholder="Duration of workout"
             value={duration}

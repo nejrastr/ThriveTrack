@@ -14,7 +14,7 @@ import UserGoals from "./User/pages/UserGoals";
 import UserProgress from "./User/pages/UserProgress";
 function App() {
   const navigate = useNavigate();
-  const [isLoggedIn, setIsLoggedIn] = React.useState(true);
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
 
   const login = React.useCallback(() => {
     setIsLoggedIn(true);

@@ -4,16 +4,21 @@ import Input from "../../Shared/FormElements/components/Input";
 import { VALIDATOR_REQUIRE } from "../../Shared/utils/validators";
 import Button from "../../Shared/FormElements/components/Button";
 import "../../Workouts/components/NewExercise.css";
-
+import { useNavigate } from "react-router-dom";
 const NewExercise = ({ numberOfExercise }) => {
   const [exerciseName, setExerciseName] = useState("");
   const [load, setLoad] = useState("");
   const [sets, setSets] = useState("");
   const [reps, setReps] = useState("");
   const [exerciseCount, setExerciseCount] = useState(0);
-
+  const navigation = useNavigate();
+  const saveWorkoutHandler = (event) => {
+    event.preventDefault();
+    navigation("/u1/workouts");
+  };
   const newExerciseHandler = (event) => {
     event.preventDefault();
+    console.log(numberOfExercise);
 
     if (exerciseCount < numberOfExercise) {
       setExerciseCount((prevCount) => prevCount + 1);
@@ -23,7 +28,7 @@ const NewExercise = ({ numberOfExercise }) => {
       setSets("");
       setReps("");
 
-      if (exerciseCount === numberOfExercise - 1) {
+      if (exerciseCount === numberOfExercise) {
         alert("You have entered all exercises. Click 'Save Workout'.");
       }
     }
@@ -69,10 +74,14 @@ const NewExercise = ({ numberOfExercise }) => {
           errorText={"Please enter a number of reps for this exercise."}
           onChange={(e) => setReps(e.target.value)}
         />
-        <Button type="submit">Save</Button>
+        {exerciseCount !== numberOfExercise - 1 ? (
+          <Button type="submit">Save</Button>
+        ) : null}
 
         {exerciseCount === numberOfExercise - 1 && (
-          <Button type="button">Save Workout</Button>
+          <Button onClick={saveWorkoutHandler} type="button">
+            Save Workout
+          </Button>
         )}
       </form>
     </Card>
