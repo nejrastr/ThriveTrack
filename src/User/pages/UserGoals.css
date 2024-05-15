@@ -6,11 +6,14 @@
 
 .goals {
   width: 90%;
-  max-width: 25rem;
+  max-width: 30rem;
   margin: 7rem auto;
   text-align: center;
 }
 
 .goals form {
   margin-bottom: 1rem;
+}
+.main {
+  justify-content: center;
 }

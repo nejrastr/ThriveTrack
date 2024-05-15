@@ -5,10 +5,17 @@ import Input from "../../Shared/FormElements/components/Input";
 import Button from "../../Shared/FormElements/components/Button";
 import { useState } from "react";
 import { VALIDATOR_REQUIRE } from "../../Shared/utils/validators";
+import NewTask from "../components/NewTask";
 const UserGoals = () => {
+  const [addTask, setAddTask] = useState(false);
+
   const onAddGoalHandler = (event) => {
     event.preventDefault();
     alert("Sucesfully created goal.");
+  };
+  const addTaskHandler = (event) => {
+    event.preventDefault();
+    setAddTask(true);
   };
   const [goalName, setGoalName] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -46,9 +53,11 @@ const UserGoals = () => {
           errorText={"Please enter a date."}
           onChange={(e) => setEndDate(e.target.value)}
         />
-        <Button type="submit">Add goal </Button>
-        <Button>Add task</Button>
+
+        <Button onClick={addTaskHandler}>Add task</Button>
       </form>
+      {addTask && <NewTask />}
+      <Button onClick={onAddGoalHandler}>Add goal </Button>
     </Card>
   );
 };
